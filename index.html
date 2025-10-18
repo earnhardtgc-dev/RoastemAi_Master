@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Roast’emAI — Roast your friends with AI</title>
+  <meta name="description" content="Upload a photo, get a hilarious AI roast, and share it everywhere. Roast’emAI is built for viral." />
+
+  <!-- Icons / PWA hooks -->
+  <link rel="icon" type="image/png" href="./assets/logo-roastemai.png" />
+  <link rel="apple-touch-icon" href="./assets/logo-roastemai.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Roast’emAI" />
+  <meta property="og:title" content="Roast’emAI — Roast your friends with AI" />
+  <meta property="og:description" content="Drop a pic. Get roasted. Share everywhere." />
+  <meta property="og:image" content="./assets/logo-roastemai.png" />
+  <meta property="og:url" content="" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Roast’emAI — Roast your friends with AI" />
+  <meta name="twitter:description" content="Upload → Roast → Share. Built for viral." />
+  <meta name="twitter:image" content="./assets/logo-roastemai.png" />
+
+  <link rel="preload" as="image" href="./assets/logo-roastemai.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="./assets/logo-roastemai.png" alt="Roast’emAI logo" class="brand__logo" />
+      <div class="brand__text">
+        <h1 class="brand__name">Roast’em<span class="accent">AI</span></h1>
+        <p class="brand__tag">Roast your friends — with AI.</p>
+      </div>
+    </div>
+    <nav class="actions" aria-label="Primary">
+      <button class="btn btn--ghost" id="shareBtn" title="Share">Share</button>
+      <button class="btn btn--ghost" id="copyLinkBtn" title="Copy link">Copy Link</button>
+      <button class="btn btn--solid" id="proBtn" title="Go Pro">Go Pro</button>
+    </nav>
+  </header>
+
+  <main class="hero" id="main">
+    <section class="card">
+      <div class="hero__logo-wrap">
+        <img src="./assets/logo-roastemai.png" class="hero__logo" alt="Roast’emAI main logo" />
+      </div>
+      <h2 class="hero__title">Upload. Roast. Share. Repeat.</h2>
+      <p class="hero__subtitle">Drop a pic and let the AI do the roasting. Keep it fun, keep it friendly.</p>
+
+      <div class="cta">
+        <label class="upload" for="fileInput" role="button" tabindex="0">
+          <input id="fileInput" type="file" accept="image/*" />
+          <span class="upload__text">Upload a photo</span>
+        </label>
+        <button class="btn btn--solid btn--lg" id="startRoastBtn">Start Roast</button>
+      </div>
+
+      <ul class="ticks" aria-label="Highlights">
+        <li>OG/Twitter cards for rich previews</li>
+        <li>Native share & quick copy-link</li>
+        <li>Stripe paywall supported</li>
+      </ul>
+
+      <div class="social-share" aria-label="Share to social">
+        <button class="social-btn fb" id="fbShare" aria-label="Share on Facebook" title="Share on Facebook">Facebook</button>
+        <button class="social-btn ig" id="igShare" aria-label="Share on Instagram" title="Share on Instagram">Instagram</button>
+        <button class="social-btn tt" id="ttShare" aria-label="Share on TikTok" title="Share on TikTok">TikTok</button>
+        <button class="social-btn yt" id="ytShare" aria-label="Share on YouTube" title="Share on YouTube">YouTube</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Roast’emAI. All rights reserved.</p>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#" id="termsLink">Terms</a>
+      <span aria-hidden="true">•</span>
+      <a href="#" id="privacyLink">Privacy</a>
+      <span aria-hidden="true">•</span>
+      <a href="#" id="contactLink">Contact</a>
+    </nav>
+  </footer>
+
+  <!-- Stripe (auto-used if you set window.STRIPE_PUBLISHABLE_KEY) -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

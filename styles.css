@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after{box-sizing:border-box}
+:root{
+  --bg:#0b0b0c; --panel:#121215; --ink:#f6f6f7; --ink-dim:#bdbdc4;
+  --acid:#ff2e83; --heat:#ff7a00; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --ring:0 0 0 3px rgba(255,46,131,.35);
+}
+html,body{height:100%}
+body{
+  margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ink); line-height:1.5;
+  background:
+    radial-gradient(1000px 600px at 10% -10%, rgba(255,46,131,.12), transparent 40%),
+    radial-gradient(800px 500px at 100% 0, rgba(255,122,0,.10), transparent 40%),
+    var(--bg);
+}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1rem clamp(1rem,3vw,2rem);
+  position:sticky; top:0; z-index:20;
+  background:linear-gradient(to bottom, rgba(11,11,12,.9), rgba(11,11,12,.65) 60%, transparent);
+  backdrop-filter:blur(6px);
+}
+.brand{display:flex; align-items:center; gap:.9rem}
+.brand__logo{width:44px;height:44px;display:block}
+.brand__name{margin:0;font-size:1.25rem;letter-spacing:.4px}
+.brand__tag{margin:0;color:var(--ink-dim);font-size:.9rem}
+.accent{color:var(--heat); text-shadow:0 0 12px rgba(255,122,0,.3)}
+.actions{display:flex; gap:.6rem}
+.btn{
+  --btn-bg:transparent; --btn-ink:var(--ink);
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.7rem 1rem; border-radius:999px; border:1px solid rgba(255,255,255,.12);
+  background:var(--btn-bg); color:var(--btn-ink); text-decoration:none; font-weight:600;
+  transition:transform .08s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+  cursor:pointer;
+}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn:focus-visible{outline:none; box-shadow:var(--ring)}
+.btn--solid{--btn-bg:linear-gradient(90deg, var(--acid), var(--heat)); border:none; color:#0b0b0c}
+.btn--ghost:hover{border-color:rgba(255,255,255,.3)}
+.btn--lg{padding:.9rem 1.2rem; font-size:1.05rem}
+.hero{display:grid; place-items:center; padding:clamp(1.2rem,5vw,2.4rem)}
+.card{
+  width:min(920px,92vw); background:linear-gradient(180deg, rgba(255,46,131,.06), transparent 30%), var(--panel);
+  border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:clamp(1.2rem,4vw,2.2rem);
+}
+.hero__logo-wrap{display:grid; place-items:center; margin-bottom:.6rem}
+.hero__logo{width:min(320px,65vw); filter:drop-shadow(0 12px 30px rgba(255,46,131,.15))}
+.hero__title{margin:.4rem 0 0; font-size:clamp(1.6rem, 2.4vw + 1rem, 2.2rem)}
+.hero__subtitle{margin:.6rem 0 1.2rem; color:var(--ink-dim)}
+.cta{display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; margin:1rem 0 1.1rem}
+.upload{
+  display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.05rem;
+  border-radius:12px; border:1px dashed rgba(255,255,255,.22); color:var(--ink); cursor:pointer;
+  user-select:none; transition:border-color .2s ease, background .2s ease;
+}
+.upload:hover{border-color:rgba(255,255,255,.38); background:rgba(255,255,255,.03)}
+.upload:focus-visible{outline:none; box-shadow:var(--ring)}
+.upload input{display:none}
+.upload__text{font-weight:600}
+.social-share{display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-top:1.2rem}
+.social-btn{border:none; border-radius:10px; padding:.55rem .8rem; font-weight:700; color:#fff; cursor:pointer; display:inline-flex; align-items:center; gap:.45rem}
+.social-btn:hover{opacity:.9; transform:translateY(-1px)}
+.fb{background:#1877f2}
+.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.tt{background:#000}
+.yt{background:#ff0000}
+.ticks{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.5rem .9rem;
+  margin:1rem 0 0; padding:0; list-style:none; color:var(--ink-dim);
+}
+.ticks li::before{content:"✓"; color:var(--acid); margin-right:.5rem}
+.footer{display:grid; place-items:center; padding:2.2rem 1rem 3rem; color:var(--ink-dim); gap:.4rem}
+.footer__nav{display:inline-flex; gap:.6rem; align-items:center}
+.footer__nav a{color:var(--ink-dim); text-decoration:none}
+.footer__nav a:hover{color:var(--ink)}
+@media (max-width:560px){ .brand__text{display:none} .btn{padding:.6rem .9rem} }
